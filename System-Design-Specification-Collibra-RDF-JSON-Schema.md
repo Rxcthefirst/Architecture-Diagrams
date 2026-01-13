@@ -198,6 +198,143 @@ sequenceDiagram
   API-->>Client: JSON Schema
 ```
 
+### 8.4 SPARQL Query Patterns
+
+This section documents the SPARQL query patterns used by the Schema Factory to retrieve entity definitions and generate JSON Schemas.
+
+#### 8.4.1 Core Entity Query Pattern
+
+**Purpose**: Retrieve all properties and metadata for a given RDF class.
+
+**Query Template**:
+```sparql
+# TODO: Add SPARQL query for retrieving entity class definition
+# Should include:
+# - Class label and description
+# - All datatype properties with domain = target class
+# - All object properties with domain = target class
+# - Property ranges, cardinality constraints
+# - Optional: SHACL shape definitions
+```
+
+**Expected Result Structure**:
+```
+# TODO: Document expected result bindings
+# Example: ?property ?propertyType ?range ?required ?description
+```
+
+#### 8.4.2 Property Details Query Pattern
+
+**Purpose**: Retrieve detailed constraints for individual properties.
+
+**Query Template**:
+```sparql
+# TODO: Add SPARQL query for property constraint retrieval
+# Should include:
+# - minLength, maxLength for strings
+# - minimum, maximum for numeric types
+# - enum values where applicable
+# - pattern/format constraints
+```
+
+#### 8.4.3 Relationship Query Pattern
+
+**Purpose**: Retrieve object properties (relationships between entities).
+
+**Query Template**:
+```sparql
+# TODO: Add SPARQL query for retrieving relationships
+# Should include:
+# - Object property definitions
+# - Domain and range classes
+# - Cardinality (1-to-1, 1-to-many, many-to-many)
+# - Inverse property definitions
+```
+
+#### 8.4.4 Enumeration Query Pattern
+
+**Purpose**: Retrieve allowed values for enumerated properties.
+
+**Query Template**:
+```sparql
+# TODO: Add SPARQL query for enum value retrieval
+# Should handle both:
+# - OWL enumeration classes
+# - SKOS concept schemes
+# - Simple value lists
+```
+
+#### 8.4.5 Schema Metadata Query Pattern
+
+**Purpose**: Retrieve versioning and provenance metadata.
+
+**Query Template**:
+```sparql
+# TODO: Add SPARQL query for schema metadata
+# Should include:
+# - ETL run ID and timestamp
+# - Source Collibra asset IDs
+# - Named graph identifier
+# - Version information
+```
+
+#### 8.4.6 Query Optimization Considerations
+
+**Caching Strategy**:
+```
+# TODO: Document caching approach
+# - Cache duration for schema queries
+# - Cache invalidation triggers
+# - Cache key strategy
+```
+
+**Performance Targets**:
+```
+# TODO: Define SLOs
+# - Query execution time: < X ms (p95)
+# - Schema generation time: < Y ms (p95)
+# - Concurrent request handling: Z req/sec
+```
+
+**Error Handling**:
+```
+# TODO: Document error scenarios
+# - Missing properties: How to handle incomplete definitions
+# - Query timeout: Fallback behavior
+# - Malformed RDF: Validation and recovery
+```
+
+#### 8.4.7 Example Query Execution Flow
+
+**For Entity "Customer"**:
+```
+# TODO: Add concrete example showing:
+# 1. Input: Entity name = "Customer"
+# 2. SPARQL queries executed (in sequence)
+# 3. Intermediate RDF results
+# 4. Final JSON Schema output
+# 5. Execution time and performance metrics
+```
+
+#### 8.4.8 Named Graph Strategy
+
+**Query Scope**:
+```sparql
+# TODO: Document how queries target specific named graphs
+# Example patterns:
+# - FROM <urn:graph:materialization:latest>
+# - GRAPH ?g WHERE { ... }
+# - Graph selection based on version/timestamp
+```
+
+**Graph Selection Logic**:
+```
+# TODO: Document rules for choosing which graph to query
+# - Production queries: latest graph
+# - Historical queries: specific run graph
+# - Comparison queries: diff between graphs
+```
+
 ---
 
 ## 9. JSON Schema Contract Model
